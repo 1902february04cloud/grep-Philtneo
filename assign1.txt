@@ -1,0 +1,15 @@
+1. grep '^Z' cities.txt
+comments: Finding the cities that start with the letter Z
+ 
+2. grep 'gan$' cities.txt
+comments: Listing all the cities the end in the word gan
+ 
+3. grep -c ^[ADE] cities.txt
+comments: Listing all the cities that start with the letter A, D, or E
+ 
+4. grep -c '\<.ar' cities.txt
+comments: Listing the cities that have a as their second letter and r as their third letter 
+ 
+5. grep -cv '^C' cities.txt
+comments: Listing the cities that don't start with the letter C
+ 
