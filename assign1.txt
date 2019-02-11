@@ -1,15 +1,30 @@
 1. grep '^Z' cities.txt
-comments: Finding the cities that start with the letter Z
+comments: Finding the cities that start with the letter Z. The ^ anchor means that it checks the beginning of the line for the letter/words.
  
 2. grep 'gan$' cities.txt
-comments: Listing all the cities the end in the word gan
+comments: Listing all the cities the end in the word gan. The $ anchor means that it checks the end of the line for the letter/words.
  
 3. grep -c ^[ADE] cities.txt
-comments: Listing all the cities that start with the letter A, D, or E
+comments: Listing all the cities that start with the letter A, D, or E. The -c flag is a line count match that prints a number while the [abc] regular expression means a or b or c. The ^ anchor looks at the beginnning of the line for matches in the letter/word.
  
 4. grep -c '\<.ar' cities.txt
-comments: Listing the cities that have a as their second letter and r as their third letter 
+comments: Listing the cities that have a as their second letter and r as their third letter. The -c flag is a line count match that prints a number while the \< anchor checks the beginning of the WORD. The '.' regular expression represents any matching character. 
  
 5. grep -cv '^C' cities.txt
-comments: Listing the cities that don't start with the letter C
+comments: Displaying the number of cities that don't start with the letter C. The -c and -v flag represents the line count and not to grep the words respectively. 
+
+6. grep -E '[^[:space:]]{14,}' cities.txt
+comments: Listing cities that have at least 14 characters using egrep. E-grep is the extended version of grep that uses more expression. The '{}' bracket determines how many characters are in the city while the '[:space:]' removes excess spaces in the city.  
+
+7. grep -c '^B' cities.txt
+comment: Counting cities that start with the letter B. The -c flag gives a count of the items while the ^ anchor looks for the letter at the start of the sentence.
+
+8. grep -o 'd' cities.txt | grep -c 'd'
+comment: Counts how many times the letter 'd' appears. The | anchor is a command redirection that transfers the output of the command on the left to the right command. The -o flag 
+
+9. grep -E '(.)\1$' cities.txt 
+comment: Listing the cities that end with the same letter twice. The () regular expression means it matches the char position and in this case, is the '.' which is any matching character. The $ anchor is the last characters in the line. 
+
+10. grep -w '^\(.\)\(.\).\2\1' cities.txt 
+comment: Listing the cities that are palindrome cities of five characters. The .\is for the matching of the characters.
  
